@@ -54,6 +54,7 @@ option(ENABLE_TESTS "Build and run test programs" OFF)
 option(ENABLE_DOCUMENTATION "Build Documentation" OFF)
 option(ENABLE_UTILS "Build util programs" OFF)
 option(ENABLE_EXAMPLES "Build example programs" OFF)
+option(ENABLE_JNI "Build the Java JNI binding" OFF)
 option(ENABLE_MULTITHREADING "Enable multithreading support" OFF)
 option(ENABLE_NFS4_2 "Build NFSv4.2 support" ON)
 set(ENABLE_TLS "AUTO" CACHE STRING "Build RPC-with-TLS support: ON, OFF or AUTO (only if gnutls and kTLS are available)")
@@ -227,6 +228,10 @@ endif()
 
 if(ENABLE_UTILS)
   add_subdirectory(utils)
+endif()
+
+if(ENABLE_JNI)
+  add_subdirectory(jni)
 endif()
 
 # this will create build-tree-specific config file (so downstream client can use this specific build without having to install package)
